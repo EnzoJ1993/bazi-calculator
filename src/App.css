@@ -1,0 +1,561 @@
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 24px;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 32px !important;
+  color: #1a365d;
+  font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.result-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pillar-card {
+  background: #fff;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pillar-card .ant-card-head {
+  background: linear-gradient(90deg, #1890ff 0%, #096dd9 100%);
+  border-radius: 8px 8px 0 0;
+  border-bottom: none;
+}
+
+.pillar-card .ant-card-head-title {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.wuxing-tag {
+  margin: 2px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.wuxing-木 {
+  background-color: #48bb78;
+  color: white;
+}
+
+.wuxing-火 {
+  background-color: #f56565;
+  color: white;
+}
+
+.wuxing-土 {
+  background-color: #d69e2e;
+  color: white;
+}
+
+.wuxing-金 {
+  background-color: #ecc94b;
+  color: #2d3748;
+}
+
+.wuxing-水 {
+  background-color: #4299e1;
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.gz-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2d3748;
+}
+
+.info-text {
+  color: #4a5568;
+  margin: 2px 0;
+  font-size: 13px;
+}
+
+.analysis-section {
+  margin-top: 8px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.analysis-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1a365d;
+  margin-bottom: 8px;
+  text-align: center;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 4px;
+}
+
+.direction-tag {
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.direction-tag.favorable {
+  background-color: #48bb78;
+  color: white;
+}
+
+.direction-tag.unfavorable {
+  background-color: #f56565;
+  color: white;
+}
+
+/* 响应式调整 */
+@media (max-width: 576px) {
+  .app {
+    padding: 16px;
+  }
+  
+  .title {
+    font-size: 24px !important;
+  }
+  
+  .gz-text {
+    font-size: 16px;
+  }
+}
+
+.nayin-text {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.shishen-tag {
+  margin: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: #1890ff;
+  color: white;
+}
+
+.liuqin-tag {
+  margin: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: #52c41a;
+  color: white;
+}
+
+.analysis-card {
+  margin-top: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.analysis-section:last-child {
+  margin-bottom: 0;
+}
+
+.analysis-subtitle {
+  color: #1a365d !important;
+  margin-top: 24px !important;
+  margin-bottom: 16px !important;
+  font-size: 18px !important;
+  border-bottom: 2px solid #e8e8e8;
+  padding-bottom: 8px;
+}
+
+.analysis-line {
+  margin-bottom: 16px;
+}
+
+.analysis-line .ant-typography {
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+.deepseek-analysis {
+  padding: 16px;
+}
+
+.deepseek-analysis .ant-spin {
+  margin: 48px auto;
+  display: block;
+}
+
+.deepseek-analysis .ant-spin-text {
+  margin-top: 8px;
+  color: #4a5568;
+}
+
+/* 添加动画效果 */
+.analysis-line {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 为每一行添加延迟动画 */
+.analysis-line:nth-child(1) { animation-delay: 0.1s; }
+.analysis-line:nth-child(2) { animation-delay: 0.2s; }
+.analysis-line:nth-child(3) { animation-delay: 0.3s; }
+.analysis-line:nth-child(4) { animation-delay: 0.4s; }
+.analysis-line:nth-child(5) { animation-delay: 0.5s; }
+.analysis-line:nth-child(6) { animation-delay: 0.6s; }
+.analysis-line:nth-child(7) { animation-delay: 0.7s; }
+.analysis-line:nth-child(8) { animation-delay: 0.8s; }
+
+.analysis-section-title {
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.analysis-section-title:first-child {
+  margin-top: 0;
+}
+
+.analysis-subtitle {
+  color: #1a365d !important;
+  font-size: 18px !important;
+  border-bottom: 2px solid #e8e8e8;
+  padding-bottom: 12px;
+  margin-bottom: 16px !important;
+}
+
+.analysis-content {
+  margin-bottom: 12px;
+  padding-left: 8px;
+}
+
+.analysis-content .ant-typography {
+  color: #4a5568;
+  line-height: 1.8;
+  font-size: 14px;
+  margin-bottom: 8px;
+  text-align: justify;
+}
+
+/* 添加渐入动画效果 */
+.analysis-section-title,
+.analysis-content {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.analysis-content {
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.prediction-result {
+  padding: 16px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.prediction-result .analysis-section-title {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 8px;
+}
+
+.prediction-result .analysis-section-title:first-child {
+  margin-top: 0;
+}
+
+.prediction-result .analysis-subtitle {
+  color: #1a365d;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.prediction-result .analysis-content {
+  margin: 8px 0;
+  padding-left: 16px;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.prediction-result .text-center {
+  text-align: center;
+}
+
+/* 预测事件弹出框样式 */
+.prediction-modal {
+  .ant-modal-content {
+    background: linear-gradient(to bottom right, #ffffff, #f5f5f5);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .ant-modal-header {
+    background: transparent;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 20px 24px;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .ant-modal-body {
+    padding: 24px;
+    max-height: 70vh;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f0f0f0;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #d9d9d9;
+      border-radius: 4px;
+      
+      &:hover {
+        background: #bfbfbf;
+      }
+    }
+  }
+
+  .prediction-result {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    
+    h4 {
+      color: #1a1a1a;
+      margin: 20px 0 10px;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 10px 0;
+      text-align: justify;
+    }
+  }
+}
+
+.prediction-input-modal .ant-modal-body {
+  padding: 24px;
+}
+
+.prediction-input-modal .ant-input-textarea {
+  margin-top: 16px;
+}
+
+.prediction-input-modal .ant-input {
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.3s ease;
+}
+
+.prediction-input-modal .ant-input:hover,
+.prediction-input-modal .ant-input:focus {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+}
+
+.prediction-result {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.prediction-result .analysis-section-title {
+  margin-top: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e8e8e8;
+}
+
+.prediction-result .analysis-section-title:first-child {
+  margin-top: 0;
+}
+
+.prediction-result .analysis-subtitle {
+  color: #1a365d;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.prediction-result .analysis-content {
+  padding: 8px 16px;
+  margin: 8px 0;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  line-height: 1.8;
+}
+
+/* 添加预测按钮样式 */
+.predict-button {
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  border: none;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.predict-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+}
+
+.predict-button:active {
+  transform: translateY(0);
+}
+
+/* 预测输入弹窗样式 */
+.prediction-input-modal .ant-modal-content {
+  border-radius: 12px;
+  background: linear-gradient(to bottom right, #ffffff, #f0f2f5);
+}
+
+.prediction-input-modal .ant-modal-header {
+  border-radius: 12px 12px 0 0;
+  background: transparent;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 24px;
+}
+
+.prediction-input-modal .ant-modal-body {
+  padding: 24px;
+}
+
+.prediction-input-modal .ant-input-textarea {
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.3s ease;
+}
+
+.prediction-input-modal .ant-input-textarea:hover,
+.prediction-input-modal .ant-input-textarea:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* 预测结果弹窗样式 */
+.prediction-modal .ant-modal-content {
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #f6f8fa 100%);
+}
+
+.prediction-modal .ant-modal-header {
+  border-radius: 16px 16px 0 0;
+  background: transparent;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 20px 24px;
+}
+
+.prediction-modal .ant-modal-body {
+  padding: 24px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.prediction-result {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.prediction-result .analysis-section-title {
+  margin: 24px 0 16px;
+}
+
+.prediction-result .analysis-section-title:first-child {
+  margin-top: 0;
+}
+
+.prediction-result .analysis-subtitle {
+  color: #1a365d;
+  font-size: 18px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 8px;
+}
+
+.prediction-result .analysis-content {
+  color: #4a5568;
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 12px 0;
+  text-align: justify;
+}
+
+.prediction-result .text-center {
+  text-align: center;
+}
+
+/* 滚动条样式 */
+.prediction-modal .ant-modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.prediction-modal .ant-modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.prediction-modal .ant-modal-body::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.prediction-modal .ant-modal-body::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+} 
