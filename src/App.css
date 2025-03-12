@@ -354,57 +354,36 @@
 /* 预测事件弹出框样式 */
 .prediction-modal {
   .ant-modal-content {
-    background: linear-gradient(to bottom right, #ffffff, #f5f5f5);
-    border-radius: 15px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 16px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   }
 
   .ant-modal-header {
     background: transparent;
-    border-bottom: 1px solid #f0f0f0;
-    padding: 20px 24px;
-    border-radius: 15px 15px 0 0;
+    border-bottom: none;
+    padding: 24px 24px 0;
   }
 
   .ant-modal-body {
-    padding: 24px;
     max-height: 70vh;
     overflow-y: auto;
-
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: #f0f0f0;
-      border-radius: 4px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: #d9d9d9;
-      border-radius: 4px;
-      
-      &:hover {
-        background: #bfbfbf;
-      }
-    }
+    padding: 24px;
   }
 
-  .prediction-result {
-    font-size: 16px;
-    line-height: 1.8;
-    color: #333;
-    
-    h4 {
-      color: #1a1a1a;
-      margin: 20px 0 10px;
-      font-weight: 500;
-    }
+  :is(h4) {
+    color: #1a365d;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-size: 18px;
+    border-bottom: 2px solid #e8e8e8;
+    padding-bottom: 8px;
+  }
 
-    p {
-      margin: 10px 0;
-      text-align: justify;
-    }
+  :is(p) {
+    color: #4a5568;
+    line-height: 1.8;
+    margin-bottom: 16px;
   }
 }
 
