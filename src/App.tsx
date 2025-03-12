@@ -146,26 +146,53 @@ function App() {
   const [predictionResult, setPredictionResult] = useState('');
   const [isPredictionModalVisible, setIsPredictionModalVisible] = useState(false);
 
+  // 添加格式化预测结果的函数
+  const formatPredictionResult = (text: string) => {
+    if (!text) return '';
+    
+    // 分割文本为行
+    const lines = text.split('\n');
+    
+    // 处理每一行
+    return lines.map(line => {
+      // 清理特殊字符和多余空格
+      let cleanLine = line.replace(/[#*`]/g, '').trim();
+      
+      // 跳过空行
+      if (!cleanLine) return null;
+      
+      // 处理标题行（数字开头的行）
+      if (/^\d+\./.test(cleanLine)) {
+        return `\n${cleanLine}\n`;
+      }
+      
+      return cleanLine;
+    })
+    .filter(Boolean) // 移除空行
+    .join('\n');
+  };
+
   const analyzeBaziWithDeepseek = async (bazi: BaziResult, event?: string) => {
     setIsAnalyzing(true);
     try {
       let prompt;
       if (event) {
-        prompt = `作为一个专业的命理师，请使用六爻预测技术，分析以下具体事项：
-        预测事项：${event}
-        
-        生辰八字：
-        年柱：${bazi.year.gz}（天干：${bazi.year.gan} 地支：${bazi.year.zhi}）
-        月柱：${bazi.month.gz}（天干：${bazi.month.gan} 地支：${bazi.month.zhi}）
-        日柱：${bazi.day.gz}（天干：${bazi.day.gan} 地支：${bazi.day.zhi}）
-        时柱：${bazi.hour.gz}（天干：${bazi.hour.gan} 地支：${bazi.hour.zhi}）
-        
-        请从以下方面进行分析：
-        1. 六爻卦象解析
-        2. 动爻与变卦分析
-        3. 吉凶断语
-        4. 时间指引
-        5. 趋吉避凶建议`;
+        prompt = `你是一名资深的命理师，你熟读《穷通宝鉴》、《滴天髓》、《渊海子平》等书籍。请根据以下生辰八字和今年的运势等情况，预测所询问重大事件的走向：
+
+生辰八字：
+年柱：${bazi.year.gz}（天干：${bazi.year.gan} 地支：${bazi.year.zhi}）
+月柱：${bazi.month.gz}（天干：${bazi.month.gan} 地支：${bazi.month.zhi}）
+日柱：${bazi.day.gz}（天干：${bazi.day.gan} 地支：${bazi.day.zhi}）
+时柱：${bazi.hour.gz}（天干：${bazi.hour.gan} 地支：${bazi.hour.zhi}）
+
+预测事项：${event}
+
+请从以下方面进行分析：
+1. 根据《穷通宝鉴》断事之法分析此事吉凶
+2. 依据《滴天髓》神煞理论推断事情发展
+3. 按照《渊海子平》格局论断结果
+4. 结合大运流年给出时间指引
+5. 提供趋吉避凶的具体建议`;
       } else {
         prompt = `作为一个专业的命理师，请对以下八字进行详细分析：
         年柱：${bazi.year.gz}（天干：${bazi.year.gan} 地支：${bazi.year.zhi}）
@@ -586,7 +613,7 @@ function App() {
                 <p style={{ marginTop: '10px' }}>正在进行预测分析...</p>
               </div>
             ) : (
-              <div style={{ whiteSpace: 'pre-line' }}>{predictionResult}</div>
+              <div style={{ whiteSpace: 'pre-line' }}>{formatPredictionResult(predictionResult)}</div>
             )}
           </div>
         </Modal>

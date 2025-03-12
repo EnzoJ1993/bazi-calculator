@@ -1,4 +1,4 @@
-import momentGenerateConfig from "rc-picker/es/generate/moment";
+import dayjsGenerateConfig from "rc-picker/es/generate/dayjs";
 import generateCalendar from './generateCalendar';
-var Calendar = generateCalendar(momentGenerateConfig);
+var Calendar = generateCalendar(dayjsGenerateConfig);
 export default Calendar;

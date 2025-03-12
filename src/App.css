@@ -297,37 +297,58 @@
 }
 
 .prediction-result {
-  padding: 16px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
+  padding: 20px;
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  border-radius: 10px;
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
-.prediction-result .analysis-section-title {
-  margin-top: 16px;
-  margin-bottom: 8px;
-  border-bottom: 1px solid #e8e8e8;
-  padding-bottom: 8px;
+.prediction-result::-webkit-scrollbar {
+  width: 8px;
 }
 
-.prediction-result .analysis-section-title:first-child {
-  margin-top: 0;
+.prediction-result::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
 }
 
-.prediction-result .analysis-subtitle {
-  color: #1a365d;
+.prediction-result::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.prediction-result::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.prediction-result > div {
+  line-height: 1.8;
   font-size: 16px;
-  margin-bottom: 0;
+  color: #333;
 }
 
-.prediction-result .analysis-content {
-  margin: 8px 0;
-  padding-left: 16px;
-  color: #4a5568;
-  line-height: 1.6;
+.prediction-result > div > p {
+  margin: 12px 0;
 }
 
-.prediction-result .text-center {
-  text-align: center;
+/* 标题样式 */
+.prediction-result > div > p:first-child {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+/* 分隔线 */
+.prediction-result > div > p:not(:last-child) {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+}
+
+/* 预测结果的每个部分 */
+.prediction-result > div > p:nth-child(n+2) {
+  text-indent: 2em;
 }
 
 /* 预测事件弹出框样式 */
