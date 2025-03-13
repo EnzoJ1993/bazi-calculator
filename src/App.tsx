@@ -478,11 +478,11 @@ function App() {
                         >
                           <div className="text-center">
                             <Text className="gz-text">{result[pillar].gz}</Text>
-                            {result[pillar].nayin && (
+                            {result[pillar]?.nayin && (
                               <div className="info-text">
-                                纳音：{result[pillar].nayin.name}
-                                <Tag className={`wuxing-tag wuxing-${result[pillar].nayin.element}`}>
-                                  {result[pillar].nayin.element}
+                                纳音：{result[pillar]?.nayin?.name}
+                                <Tag className={`wuxing-tag wuxing-${result[pillar]?.nayin?.element}`}>
+                                  {result[pillar]?.nayin?.element}
                                 </Tag>
                               </div>
                             )}

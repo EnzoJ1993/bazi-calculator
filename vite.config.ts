@@ -5,17 +5,13 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'dist',
-    sourcemap: false,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
-    }
+    minify: 'terser'
   },
   server: {
     port: 3000,
     open: true
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'antd', '@ant-design/icons', 'lunar-typescript']
   }
 }) 
